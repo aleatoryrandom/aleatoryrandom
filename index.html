@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>This is the end</title>
+     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <description>This was a mistake</description>
+  <meta name="robots" content="noindex">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<style>
+div {
+	text-align: center;
+}
+* {
+  font-family: 'Montserrat';
+}
+        body {
+            background-color: black;
+            display: flex;
+            height: 90vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .whiteText {
+            color: white;
+            font-size: 2em;
+        }
+
+        .redText {
+            color: red;
+            font-size: 2em;
+        }
+
+
+body {
+    background-color: black;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    background-size: auto;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0,
+        rgba(255, 255, 255, 0) 99%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    animation: noise 1s infinite linear alternate-reverse;
+}
+
+@keyframes noise {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+</style>
+<body>
+    <div id="text1" class="whiteText"></div>
+    <div id="text2" class="redText"></div>
+    <script>
+      const typeWriter = (text, element, delay) => {
+        let i = 0;
+        const interval = setInterval(() => {
+          if (i < text.length) {
+            document.getElementById(element).innerHTML += text[i];
+            i++;
+          } else {
+            clearInterval(interval);
+          }
+        }, delay);
+      };
+
+      typeWriter('So this is what the dream feels like?', 'text1', 50);
+
+      setTimeout(() => {
+        typeWriter('This is the victory we longed for', 'text2', 50);
+      }, 2800);
+    </script>
+</body>
+</html>
